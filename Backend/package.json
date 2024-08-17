@@ -1,0 +1,42 @@
+{
+  "name": "skyniche-employees-cards-assignment",
+  "version": "1.0.0",
+  "description": "In this MERN Stack assignment by skyniche, built a employees cards containing Name, Department, Designation, Date of Joining, Salary and optional image. Data is stored in MongoDB, APIs developed using NodeJs, and front End is developed using ReactJs",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alex21c/skyniche-employees-cards-assignment"
+  },
+  "keywords": [
+    "skyniche",
+    "employee cards assignment",
+    "geekster",
+    "alex21c"
+  ],
+  "author": "Abhishek kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Alex21c/skyniche-employees-cards-assignment/issues"
+  },
+  "homepage": "https://github.com/Alex21c/skyniche-employees-cards-assignment#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cloudinary": "^2.4.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nanoid": "^5.0.7",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "validator": "^13.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
