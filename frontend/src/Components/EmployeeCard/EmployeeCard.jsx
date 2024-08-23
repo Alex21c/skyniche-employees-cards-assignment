@@ -94,7 +94,7 @@ export default function EmployeeCard({
   }
 
   return (
-    <div className="employeeCard bg-stone-100 w-[27rem] flex flex-col gap-[1rem] items-center p-[1rem] relative rounded-md">
+    <div className="employeeCard bg-stone-100 w-[27rem] min-h-[24rem] flex flex-col gap-[1rem] items-center p-[1rem] relative rounded-md shadow-md shadow-stone-400">
       <div className="rounded-full w-[8rem] h-[8rem] border-green-300 border-[.2rem] overflow-hidden flex flex-col items-center justify-center">
         {employeeObj?.profileImage?.url ? (
           <img
