@@ -111,7 +111,7 @@ export default function EmployeeCard({
         <h2>
           {employeeObj.firstName} {employeeObj.lastName}
         </h2>
-        <div className="text-stone-400">admin@alex21c.com</div>
+        <div className="text-stone-400">{employeeObj.email}</div>
       </div>
 
       <div className="employeeDetails grid grid-cols-2 gap-[.5rem] w-[20rem]">

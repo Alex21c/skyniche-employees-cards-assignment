@@ -230,6 +230,7 @@ const updateEmployeeDetails = async (req, res, next) => {
     const {
       firstName,
       lastName,
+      email,
       department,
       designation,
       dateOfJoining,
@@ -240,6 +241,9 @@ const updateEmployeeDetails = async (req, res, next) => {
     }
     if (lastName) {
       employee.lastName = lastName;
+    }
+    if (email) {
+      employee.email = email;
     }
     if (department) {
       employee.department = department;
