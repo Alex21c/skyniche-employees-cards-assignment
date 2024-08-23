@@ -87,9 +87,10 @@ export default function Home() {
         );
       }
       // if unauthorized return to sign in
-      if (response?.status === 401 && response?.statusText === "Unauthorized") {
+      if (response?.status === 401 || response?.statusText === "Unauthorized") {
         navigate("/sign-in");
       }
+
       response = await response.json();
       if (!response.success) {
         throw new Error(response.message);
