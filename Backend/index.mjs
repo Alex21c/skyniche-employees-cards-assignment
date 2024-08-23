@@ -28,7 +28,9 @@ const corsOptions = {
     if (
       !origin ||
       origin.includes("localhost:3000") ||
-      origin.includes("https://skyniche-employees-cards-assignment.app")
+      origin.includes(
+        "https://skyniche-employees-cards-assignment.onrender.com"
+      )
     ) {
       callback(null, true);
     } else {
