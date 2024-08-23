@@ -29,7 +29,7 @@ const corsOptions = {
       !origin ||
       origin.includes("localhost:3000") ||
       origin.includes(
-        "https://skyniche-employees-cards-assignment-git-main-alex21cs-projects.vercel.app/"
+        "https://skyniche-employees-cards-assignment-git-main-alex21cs-projects.vercel.app"
       )
     ) {
       callback(null, true);
