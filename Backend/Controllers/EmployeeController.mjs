@@ -8,6 +8,8 @@ import "dotenv/config";
 import mongoose from "mongoose";
 const registerNewEmployee = async (req, res, next) => {
   try {
+    console.log(req.body);
+
     const doc = new EmployeeModel(req.body);
     const profileImage = req?.file;
     if (profileImage) {
@@ -56,7 +58,8 @@ const registerNewEmployee = async (req, res, next) => {
 };
 const getEmployeeById = async (req, res, next) => {
   try {
-    const { employeeId } = req.body;
+    const { employeeId } = req.params;
+
     if (!employeeId) {
       return next(new CustomError(400, "missing employeeId"));
     }
@@ -162,7 +165,8 @@ const getAllTheEmployees = async (req, res, next) => {
 };
 const getEmployeesBasedOnCustomFilters = async (req, res, next) => {
   try {
-    const { firstName, lastName, department, designation } = req.body;
+    const { firstName, lastName, department, designation } = req.query;
+
     if (!firstName && !lastName && !department && !designation) {
       return next(
         new CustomError(
@@ -185,7 +189,8 @@ const getEmployeesBasedOnCustomFilters = async (req, res, next) => {
     if (designation) {
       filters.push({ designation: { $regex: new RegExp(designation, "i") } });
     }
-    const employees = await EmployeeModel.find({ $and: filters });
+    console.log(filters);
+    const employees = await EmployeeModel.find({ $or: filters });
 
     if (!employees.length) {
       return next(new CustomError(404, "No matching employees found"));

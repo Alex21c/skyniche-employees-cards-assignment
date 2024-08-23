@@ -5,13 +5,14 @@ import "dotenv/config";
 import mongoose from "mongoose";
 import UserRoute from "./Routes/UserRoute.mjs";
 import EmployeeRoute from "./Routes/EmployeeRoute.mjs";
+import cors from "cors";
 const PORT = process.env.PORT || 4000;
 const app = e();
 // Req logging
 app.use(morgan("dev"));
 // Making connection with DB
 mongoose
-  .connect(process.env.MONGODB_CONNECTION_STRING_LOCALHOST)
+  .connect(process.env.MONGODB_CONNECTION_STRING)
   .then(() => {
     console.log("Connection Established with Database!");
   })
@@ -20,6 +21,26 @@ mongoose
     console.log("Exiting...");
     process.exit(1);
   });
+
+// cors
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (
+      !origin ||
+      origin.includes("localhost:3000") ||
+      origin.includes("https://skyniche-employees-cards-assignment.app")
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  allowedHeaders: ["Authorization", "Content-Type"],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 // allow me to export json from body
 app.use(e.json());

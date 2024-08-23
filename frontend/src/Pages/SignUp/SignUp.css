@@ -1,0 +1,9 @@
+@media screen and (max-width: 432px) {
+  form#signUp {
+    width: 100%;
+  }
+  div.wrapperFirstAndLastName {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

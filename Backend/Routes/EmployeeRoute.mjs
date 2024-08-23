@@ -28,7 +28,7 @@ EmployeeRoute.post(
   EmployeeController.registerNewEmployee
 );
 EmployeeRoute.get(
-  "/get-employee-by-id",
+  "/get-employee-by-id/:employeeId",
   passport.authenticate("jwt", { session: false }),
   EmployeeController.getEmployeeById
 );

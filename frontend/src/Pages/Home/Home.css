@@ -1,0 +1,36 @@
+@media screen and (max-width: 1360px) {
+  ul#employeesGrid {
+    grid-template-columns: 27rem 27rem;
+
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 910px) {
+  ul#employeesGrid {
+    grid-template-columns: 27rem;
+  }
+}
+
+@media screen and (max-width: 624px) {
+  div#kindOfHeader {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 454px) {
+  div#wrapperSearch,
+  div.employeeCard {
+    width: 95%;
+  }
+  ul#employeesGrid {
+    grid-template-columns: 100%;
+  }
+  div.employeeDetails {
+    grid-template-columns: 80%;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1rem;
+  }
+}
