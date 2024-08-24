@@ -25,6 +25,7 @@ The popup form have fields to enter First Name, Last Name, Department, Designati
 - [ReactJS](https://react.dev/)
 - [NodeJS](https://nodejs.org/en/)
 - [JWT Authentication](https://jwt.io/)
+- [Cloudinary](https://cloudinary.com/)
   
 
 ## How to install and run in yours local machine
@@ -129,199 +130,224 @@ JSON
 ```
 
 
-## 2. Upload Endpoints
-Note: 
-+ [Download Seats.csv](SampleDataCsvFiles/Seats.csv)
-+ [Download SeatsPricing.csv](SampleDataCsvFiles/SeatsPricing.csv)
-  
-### 2.1 POST api/v1/uploadDefaultDataIntoDbFromCsvFile/uploadSeats
+## 2. Employee Endpoints
+### 2.1 POST /api/v1/employee/register-new-employee
 ### Purpose:
-Upload Seats Sample data from seats.csv file into the Database
-### Request Body:
-```javascript
-form-data
-csvFile : seats.csv
-```
-### Response Success:
-```javascript
-JSON
-{
-    "success": true,
-    "message": "Seats Data has been saved successfully into DB!"
-}
-```
-### 2.2 POST api/v1/uploadDefaultDataIntoDbFromCsvFile/uploadSeatsPricingData
-### Purpose:
-Upload Seats Sample data from SeatsPricing.csv file into the Database
-### Request Body:
-```javascript
-form-data
-csvFile : SeatsPricing.csv
-```
-### Response Success:
-```javascript
-JSON
-{
-    "success": true,
-    "message": "SeatsPricing Data has been saved successfully into DB!"
-}
-```
-
-## 3. Bookings Endpoints
-### 3.1 POST api/v1/uploadDefaultDataIntoDbFromCsvFile/uploadSeats
-### Purpose:
-Create Booking
-- Create a booking for the selected seats.
-- Accept an array of seat ids to be booked, name and phone number of the user.
-- Create a booking if those seats are not previously booked. Return relevant error
-- message if any seats chosen are already booked.
-- Upon successful booking, return the booking ID, and the total amount of the
-  booking.
+Create a New Employee and store details into the MongoDB Database.
 ### Request Body:
 ```javascript
 HEADERS
 "Authorization": "Bearer JWT_TOKEN"
-BODY JSON
-{
-    "bookedSeatsIds": ["554266047-9", "006890170-4", "726092574-4"]
-}
+
+BODY FORM-DATA
+fieldName | Type | Sample Value
+firstName | Text | Abhishek
+lastName | Text | kumar
+email | Text | admin@alex21c.com
+department | Text | Development
+designation | Text | SDE
+dateOfJoining | Text | 17-Aug-2024
+monthlySalary | Text | 120000
+profileImage | File | profileImage.png
+
 
 ```
 ### Response Success:
 ```javascript
 JSON
 {
-    "booking": {
-        "bookedSeatsIds": [
-            "554266047-9",
-            "006890170-4",
-            "726092574-4"
-        ],
-        "bookedByUserId": "66bf20e9219b1b63b5bafd13",
-        "totalAmountForTheBooking": 635.8,
-        "currencySymbol": "₹",
-        "_id": "66bf2367219b1b63b5bb0124"
+    "success": true,
+    "data": {
+        "firstName": "Abhishek5",
+        "lastName": "kumar",
+        "email": "admin@alex21c.com",
+        "department": "Development",
+        "designation": "SDE",
+        "dateOfJoining": "2024-08-16T18:30:00.000Z",
+        "monthlySalary": 120000,
+        "salaryCurrency": "₹",
+        "_id": "66c9ac934e65806d9b7d04ad"
     }
 }
 ```
-### 3.2 GET api/v1/booking/retrieve-bookings
+### 2.2 GET /api/v1/employee/get-employee-by-id/:employeeId
 ### Purpose:
-Retrieve Bookings
-- Return all bookings created by the user. The API should search by email or phone
-  number. Any one has to be provided. Return error if no user identifier is provided.
+Search for specific employee matching provided employeeId and return information about employee if present
 ### Request Body:
 ```javascript
 HEADERS
 "Authorization": "Bearer JWT_TOKEN"
-BODY JSON
-{
-    "usernameOrEmailOrMobile": "admin@alex21c.com"   
-}
+
+Request
+/api/v1/employee/get-employee-by-id/66c9acde4e65806d9b7d04b0
 
 ```
 ### Response Success:
 ```javascript
 JSON
 {
-    "bookings": [
+    "success": true,
+    "data": {
+        "_id": "66c9acde4e65806d9b7d04b0",
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "email": "jane@alex21c.com",
+        "department": "Accounts",
+        "designation": "CA",
+        "dateOfJoining": "2024-08-16T18:30:00.000Z",
+        "monthlySalary": 180000,
+        "salaryCurrency": "₹",
+        "__v": 0
+    }
+}
+```
+### 2.3 GET /api/v1/employee/get-all-the-employees
+### Purpose:
+Get all the employees present in the Database
+### Request Body:
+```javascript
+HEADERS
+"Authorization": "Bearer JWT_TOKEN"
+
+```
+### Response Success:
+```javascript
+JSON
+{
+    "success": true,
+    "data": [
         {
-            "_id": "66bf2367219b1b63b5bb0124",
-            "bookedSeatsIds": [
-                "554266047-9",
-                "006890170-4",
-                "726092574-4"
-            ],
-            "bookedByUserId": "66bf20e9219b1b63b5bafd13",
-            "totalAmountForTheBooking": 635.8,
-            "currencySymbol": "₹",
+            "_id": "66c9ac934e65806d9b7d04ad",
+            "firstName": "Abhishek5",
+            "lastName": "kumar",
+            "email": "admin@alex21c.com",
+            "department": "Development",
+            "designation": "SDE",
+            "dateOfJoining": "2024-08-16T18:30:00.000Z",
+            "monthlySalary": 120000,
+            "salaryCurrency": "₹",
+            "__v": 0
+        },
+        {
+            "_id": "66c9acde4e65806d9b7d04b0",
+            "firstName": "Jane",
+            "lastName": "Smith",
+            "email": "jane@alex21c.com",
+            "department": "Accounts",
+            "designation": "CA",
+            "dateOfJoining": "2024-08-16T18:30:00.000Z",
+            "monthlySalary": 180000,
+            "salaryCurrency": "₹",
             "__v": 0
         }
     ]
 }
 ```
-
-## 4. Seat Endpoints
-### 4.1 GET api/v1/seat/get-seat-pricing
+### 2.4 GET api/v1/employee/get-employees-based-on-custom-filters?firstName=value&lastName=null&department=null&designation=null
+where,
++ value: could be any first name like abhishek,
++ null: specify that ignore that attribute
 ### Purpose:
- Get Seat pricing
-- Return the seat details along with the pricing for the seat based on the class.
-
-Note: The pricing should be returned based on the bookings previously made for
-  that seat class.
-  - Less than 40% of seats booked - use the min_price, if min_price is not
-    available, use normal_price
-  - 40% - 60% of seats booked - use the normal_price, if normal_price not
-    available, use max_price
-  - More than 60% of seats booked - use the max_price, if max_price is not
-    available, use normal_price
+Search for employee based on custom filter if either of firstName, lastName, department, designation matches that employee record is returned, if multiple employees having smiliar information all of them would be returned
 ### Request Body:
 ```javascript
 HEADERS
 "Authorization": "Bearer JWT_TOKEN"
-BODY JSON
-{
-    "seatId": "726092574-4"    
-}
+
+Request :
+api/v1/employee/get-employees-based-on-custom-filters?firstName=jane&lastName=null&department=null&designation=null
 
 ```
 ### Response Success:
 ```javascript
 JSON
 {
-    "seatPrice": 156.15,
-    "seat_class": "D",
-    "is_booked": true
-}
-```
-### 4.2 GET api/v1/seat/get-all-seats
-### Purpose:
-Return all the seats, ordered by the seat class and also return a boolean is_booked
-for every seat.
-### Request Body:
-```javascript
-HEADERS
-"Authorization": "Bearer JWT_TOKEN"
-BODY 
-NA
-```
-### Response Success:
-```javascript
-JSON
-{
-    "result": [
+    "success": true,
+    "data": [
         {
-            "_id": "66bf2213219b1b63b5bafd21",
-            "seat_identifier": "704770716-6",
-            "seat_class": "A",
-            "is_booked": false,
-            "createdAt": "2024-08-16T09:55:33.189Z",
-            "updatedAt": "2024-08-16T09:55:33.189Z",
-            "__v": 0
-        },
-        {
-            "_id": "66bf2214219b1b63b5bafd39",
-            "seat_identifier": "871034850-6",
-            "seat_class": "A",
-            "is_booked": false,
-            "createdAt": "2024-08-16T09:55:33.190Z",
-            "updatedAt": "2024-08-16T09:55:33.190Z",
-            "__v": 0
-        },
-.
-.
-.
-        {
-            "_id": "66bf2214219b1b63b5baff05",
-            "seat_identifier": "229209436-3",
-            "seat_class": "J",
-            "is_booked": false,
-            "createdAt": "2024-08-16T09:55:33.489Z",
-            "updatedAt": "2024-08-16T09:55:33.489Z",
+            "_id": "66c9acde4e65806d9b7d04b0",
+            "firstName": "Jane",
+            "lastName": "Smith",
+            "email": "jane@alex21c.com",
+            "department": "Accounts",
+            "designation": "CA",
+            "dateOfJoining": "2024-08-16T18:30:00.000Z",
+            "monthlySalary": 180000,
+            "salaryCurrency": "₹",
             "__v": 0
         }
-]
+    ]
 }
 ```
+### 2.5 PATCH api/v1/employee/update-employee-details
+### Purpose:
+Update existing employee details stored inside the MongoDB Database. Here developer can specify all the fields that needed to be changed or just specific fields only.
+
+### Request Body:
+```javascript
+HEADERS
+"Authorization": "Bearer JWT_TOKEN"
+
+BODY FORM-DATA
+fieldName | Type | Sample Value
+employeeId | Text | 66c9acde4e65806d9b7d04b0
+firstName | Text | Jane
+lastName | Text | 
+email | Text | 
+department | Text | 
+designation | Text | 
+dateOfJoining | Text | 
+monthlySalary | Text | 
+profileImage | File | profileImage.png
+
+
+```
+### Response Success:
+```javascript
+JSON
+{
+    "success": true,
+    "msg": "wait",
+    "data": {
+        "_id": "66c9acde4e65806d9b7d04b0",
+        "firstName": "Jane 2",
+        "lastName": "Smith",
+        "email": "jane@alex21c.com",
+        "department": "Accounts",
+        "designation": "CA",
+        "dateOfJoining": "2024-08-16T18:30:00.000Z",
+        "monthlySalary": 180000,
+        "salaryCurrency": "₹",
+        "__v": 0
+    }
+}
+```
+### 2.6 DELETE api/v1/employee/delete-employee
+### Purpose:
+Permanently delete the employee from MongoDB database, and if there is any profile image associated with empoyee then delete that as well from cloudinary server
+
+### Request Body:
+```javascript
+HEADERS
+"Authorization": "Bearer JWT_TOKEN"
+
+BODY JSON
+{
+    "employeeId" : "66c9acde4e65806d9b7d04b0"
+}
+
+
+```
+### Response Success:
+```javascript
+JSON
+{
+    "success": true,
+    "data": "Employee record deleted !"
+}
+```
+
+
 
 
 
