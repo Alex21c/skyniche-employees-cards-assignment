@@ -92,6 +92,12 @@ const loginUser = async (req, res, next) => {
     return next(new CustomError(500, error.message));
   }
 };
+const handshakeHello = async (req, res) => {
+  res.json({
+    success: true,
+    message: "hi there!",
+  });
+};
 
-const UserController = { registerNewUser, loginUser };
+const UserController = { registerNewUser, loginUser, handshakeHello };
 export default UserController;

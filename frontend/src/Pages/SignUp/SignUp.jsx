@@ -1,3 +1,4 @@
+import { handshakeHello } from "../../Utils.mjs";
 import "./SignUp.css";
 import validator from "validator";
 import apiUrls from "../../apiUrls.mjs";
@@ -26,6 +27,7 @@ export default function SignUp() {
 
   useEffect(() => {
     refUsername.current.focus();
+    handshakeHello();
   }, []);
 
   async function handleFormSubmit(event) {

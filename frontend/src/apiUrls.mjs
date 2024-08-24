@@ -2,6 +2,7 @@ const apiUrls = {
   user: {
     registerNewUser: "/api/v1/user/registerNewUser",
     login: "/api/v1/user/login",
+    "handshake-hello": "/api/v1/user/handshake-hello",
   },
   employee: {
     "get-all-the-employees": "/api/v1/employee/get-all-the-employees",

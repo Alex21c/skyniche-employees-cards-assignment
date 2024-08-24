@@ -1,3 +1,4 @@
+import { handshakeHello } from "../../Utils.mjs";
 import "./SignIn.css";
 import { getProjectName } from "../../Utils.mjs";
 import validator from "validator";
@@ -23,6 +24,7 @@ export default function SignIn() {
 
   useEffect(() => {
     refUsernameOrEmailOrMobile.current.focus();
+    handshakeHello();
   }, []);
 
   async function handleFormSubmit(event) {

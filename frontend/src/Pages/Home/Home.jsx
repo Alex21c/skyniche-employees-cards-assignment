@@ -1,3 +1,4 @@
+import { handshakeHello } from "../../Utils.mjs";
 import "./Home.css";
 import { useRef } from "react";
 import { getProjectName } from "../../Utils.mjs";
@@ -105,6 +106,7 @@ export default function Home() {
 
   useEffect(() => {
     getAllTheEmployees();
+    handshakeHello();
   }, []);
   const refSearchQuery = useRef(null);
 
