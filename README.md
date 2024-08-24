@@ -4,10 +4,18 @@
 ## Hosted Link
 [skyniche-employees-cards-assignment](https://skyniche-employees-cards-assignment.vercel.app/)
 
+## Tech. Stack Used:
+- [MongoDB](https://www.mongodb.com/)
+- [ExpressJS](https://expressjs.com/)
+- [ReactJS](https://react.dev/)
+- [NodeJS](https://nodejs.org/en/)
+- [JWT Authentication](https://jwt.io/)
+- [Cloudinary](https://cloudinary.com/)
+
 ## Objective
 Build a MERN Stack application where employees details can be managed, allowing adding new employees, updating existing employee details, Searching and deleting employees.
 
-## Assignment Specs:
+## Assignment Specifications:
 + Created and display a modal when user click on the plus icon. 
 The popup form have fields to enter First Name, Last Name, Department, Designation, Date of Joining, Salary. It ise optional to upload the image as well. If the image is not uploaded then the image circle shows the first letters in first name and last name of employees.. 
 + created the followingAPIs using NodeJS to make the application interactive with the user.
@@ -19,13 +27,7 @@ The popup form have fields to enter First Name, Last Name, Department, Designati
   3. Update / Edit Employee Details
   4. Delete / Remove Employee
 
-## Tech. Stack Used:
-- [MongoDB](https://www.mongodb.com/)
-- [ExpressJS](https://expressjs.com/)
-- [ReactJS](https://react.dev/)
-- [NodeJS](https://nodejs.org/en/)
-- [JWT Authentication](https://jwt.io/)
-- [Cloudinary](https://cloudinary.com/)
+
   
 
 ## How to install and run in yours local machine
