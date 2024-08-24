@@ -8,8 +8,6 @@ import "dotenv/config";
 import mongoose from "mongoose";
 const registerNewEmployee = async (req, res, next) => {
   try {
-    console.log(req.body);
-
     const doc = new EmployeeModel(req.body);
     const profileImage = req?.file;
     if (profileImage) {

@@ -189,6 +189,9 @@ export default function SimpleModal({ getAllTheEmployees = null }) {
       setStateIsApiCallBeingMade(false);
       // hide current modal window
       setOpenMuiModal(false);
+      // Reset
+      refImageFile.current = null;
+      setStatePreviewImageSrc(profileImagePlaceholder);
     }
   }
 

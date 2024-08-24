@@ -190,7 +190,7 @@ export default function Home() {
   };
   const debouncedSearch = search();
   return (
-    <div className="p-[1rem] flex flex-col gap-[.5rem]">
+    <div className="p-[1rem] flex flex-col gap-[.5rem] max-w-[90rem] m-[auto] ">
       <div className="flex   justify-between items-center" id="kindOfHeader">
         <SimpleModal getAllTheEmployees={getAllTheEmployees} />
         <div id="wrapperSearch" className="relative w-[25rem]">
