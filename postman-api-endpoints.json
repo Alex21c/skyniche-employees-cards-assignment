@@ -1,0 +1,440 @@
+{
+	"info": {
+		"_postman_id": "947bb8ae-6ca4-4cd4-8b37-0cb911f4b50a",
+		"name": "skyniche-employees-cards-assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32540147"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "registerNewUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"alex21c\",\r\n  \"firstName\": \"Abhishek\",\r\n  \"lastName\": \"kumar\",\r\n  \"email\": \"admin@alex21c.com\",\r\n  \"mobile\": \"8278782787\",\r\n  \"password\": \"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/user/registerNewUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"registerNewUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"usernameOrEmailOrMobile\": \"alex21c\",\r\n  \"password\": \"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "handshake-hello",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/user/handshake-hello",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"handshake-hello"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "register-new-employee",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmMxZDE5OTRjZTc3M2VmMzk4MDkwZWEiLCJmaXJzdE5hbWUiOiJhYmhpc2hlayIsImlhdCI6MTcyNDM5NTUzNSwiZXhwIjoxNzI0NDgxOTM1fQ.-ZlgCL0Ysw6rreapMMQoc11ICs6gqDiK8WVTphu3JVM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstName",
+									"value": "Abhishek5",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "kumar",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "admin@alex21c.com",
+									"type": "text"
+								},
+								{
+									"key": "department",
+									"value": "Development",
+									"type": "text"
+								},
+								{
+									"key": "designation",
+									"value": "SDE",
+									"type": "text"
+								},
+								{
+									"key": "dateOfJoining",
+									"value": "17-Aug-2024",
+									"type": "text"
+								},
+								{
+									"key": "monthlySalary",
+									"value": "120000",
+									"type": "text"
+								},
+								{
+									"key": "profileImage",
+									"type": "file",
+									"src": "/C:/Users/MahamayaComputers/Documents/Testing/skyniche-employees-cards-assignment/Backend/sampleImages/female-member-placeholder-image.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/employee/register-new-employee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"register-new-employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-employee-by-id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmMxZDE5OTRjZTc3M2VmMzk4MDkwZWEiLCJmaXJzdE5hbWUiOiJhYmhpc2hlayIsImlhdCI6MTcyNDM5NTUzNSwiZXhwIjoxNzI0NDgxOTM1fQ.-ZlgCL0Ysw6rreapMMQoc11ICs6gqDiK8WVTphu3JVM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/employee/get-employee-by-id/66c6f009bb9e6c3dfa8255b9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"get-employee-by-id",
+								"66c6f009bb9e6c3dfa8255b9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-the-employees",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmMwNDFhMmMzZWJmZDA4YTA3ZjI3ZGYiLCJmaXJzdE5hbWUiOiJBYmhpc2hlayIsImlhdCI6MTcyMzg4MTExMywiZXhwIjoxNzIzOTY3NTEzfQ.Fk4zv1WmO3ryS97u5v8Q1ttuC7gXuZGzB-CoYqT_yJk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/employee/get-all-the-employees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"get-all-the-employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-employees-based-on-custom-filters",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmMxZDE5OTRjZTc3M2VmMzk4MDkwZWEiLCJmaXJzdE5hbWUiOiJhYmhpc2hlayIsImlhdCI6MTcyNDQwOTYxMCwiZXhwIjoxNzI0NDk2MDEwfQ.DxQkmfMoDhiiPGr2hOGXQw-zRmWtwXicD2TPtlTRS7U",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/employee/get-employees-based-on-custom-filters?firstName=Abhishek&lastName=null&department=null&designation=null",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"get-employees-based-on-custom-filters"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "Abhishek"
+								},
+								{
+									"key": "lastName",
+									"value": "null"
+								},
+								{
+									"key": "department",
+									"value": "null"
+								},
+								{
+									"key": "designation",
+									"value": "null"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEmployeeDetails",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmMwNDFhMmMzZWJmZDA4YTA3ZjI3ZGYiLCJmaXJzdE5hbWUiOiJBYmhpc2hlayIsImlhdCI6MTcyMzg4MTExMywiZXhwIjoxNzIzOTY3NTEzfQ.Fk4zv1WmO3ryS97u5v8Q1ttuC7gXuZGzB-CoYqT_yJk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employeeId",
+									"value": "66c0825dcccc8da8c20e0c83",
+									"type": "text"
+								},
+								{
+									"key": "firstName",
+									"value": "Abhishek3",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "lastName",
+									"value": "kumar",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "admin@alex21c.com",
+									"type": "text"
+								},
+								{
+									"key": "department",
+									"value": "Development",
+									"type": "text"
+								},
+								{
+									"key": "designation",
+									"value": "SDE",
+									"type": "text"
+								},
+								{
+									"key": "dateOfJoining",
+									"value": "17-Aug-2024",
+									"type": "text"
+								},
+								{
+									"key": "monthlySalary",
+									"value": "120000",
+									"type": "text"
+								},
+								{
+									"key": "profileImage",
+									"type": "file",
+									"src": "/C:/Users/MahamayaComputers/Documents/Testing/skyniche-employees-cards-assignment/sampleImages/male-employee-placeholder-image.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/employee/update-employee-details",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"update-employee-details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteEmployee",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmMwNDFhMmMzZWJmZDA4YTA3ZjI3ZGYiLCJmaXJzdE5hbWUiOiJBYmhpc2hlayIsImlhdCI6MTcyMzg4MTExMywiZXhwIjoxNzIzOTY3NTEzfQ.Fk4zv1WmO3ryS97u5v8Q1ttuC7gXuZGzB-CoYqT_yJk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"employeeId\" : \"66c1921d3521c196474f4eed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/employee/delete-employee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"delete-employee"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
