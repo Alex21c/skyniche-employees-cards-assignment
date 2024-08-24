@@ -31,6 +31,12 @@ The popup form have fields to enter First Name, Last Name, Department, Designati
   
 
 ## How to install and run in yours local machine
+
+```bash
+npm install
+npm run start
+```
+
 ### .env file front End
 ```javascript
 REACT_APP_SERVER_ROOT_URL=http://localhost:4000
@@ -52,13 +58,6 @@ PRJ_NAME=skyniche-employees-cards-assignment
 Note: 
 + YoursMongoDBConnectionString : get yours from [www.mongodb.com](https://www.mongodb.com/)
 + YoursCloudinaryApiKey : get yours from [cloudinary.com](https://cloudinary.com/)
-
-
-```bash
-npm install
-npm run start
-```
-
 
 
 ## API Endpoints
