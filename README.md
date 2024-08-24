@@ -11,34 +11,44 @@ Build a MERN Stack application where employees details can be managed, allowing 
 + Created and display a modal when user click on the plus icon. 
 The popup form have fields to enter First Name, Last Name, Department, Designation, Date of Joining, Salary. It ise optional to upload the image as well. If the image is not uploaded then the image circle shows the first letters in first name and last name of employees.. 
 + created the followingAPIs using NodeJS to make the application interactive with the user.
-   1. Create / Add 
-   2. Read / Select - This API should have two variations.
-   3. (a) API to select data from database table using id (a unique value or primary key) 
+   1. Create / Add New Employee
+   2. Read / Select Employee(s)
+      (a) API to select data from database table using id (a unique value or primary key) 
       (b) API to select all the data stored in database table
       (c) API to search data based on the parameter given by the user. For example: based on "name of employee", "designation" etc.
-  4. Update / Edit 
-  5. Delete / Remove
+  3. Update / Edit Employee Details
+  4. Delete / Remove Employee
 
 ## Tech. Stack Used:
-
 - [MongoDB](https://www.mongodb.com/)
 - [ExpressJS](https://expressjs.com/)
 - [ReactJS](https://react.dev/)
 - [NodeJS](https://nodejs.org/en/)
-
+- [JWT Authentication](https://jwt.io/)
   
 
 ## How to install and run in yours local machine
-### .env file
+### .env file front End
+```javascript
+REACT_APP_SERVER_ROOT_URL=http://localhost:4000
+REACT_APP_PROJECT_NAME=alex21c-skyniche-employees-cards-assignment
+REACT_APP_MAX_ALLOWED_PROFILE_IMAGE_SIZE_IN_KB=500
+```
+### .env file back End
 ```javascript
 PORT=4000
-MONGODB_CONNECTION_STRING_LOCALHOST=mongodb://localhost:27017/flurn-booking-service-assignment
-MONGODB_CONNECTION_STRING=<YoursMongoDBConnectionString>
-JWT_PRIVATE_KEY=flurn-booking-service-assignment-private-key-created-on-14-aug-2024
+MONGODB_CONNECTION_STRING=mongodb://localhost:27017/skyniche-employees-cards-assignment
+JWT_PRIVATE_KEY=skyniche-employees-cards-assignment-private-key-created-on-17-aug-2024
 USER_SESSION_EXPIRES_AFTER="1d"
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+MAX_ALLOWED_FILE_UPLOAD_SIZE_IN_KB=500
+PRJ_NAME=skyniche-employees-cards-assignment
 ```
 Note: 
-+ YoursMongoDBConnectionString : get yorus from [www.mongodb.com](https://www.mongodb.com/)
++ YoursMongoDBConnectionString : get yours from [www.mongodb.com](https://www.mongodb.com/)
++ YoursCloudinaryApiKey : get yours from [cloudinary.com](https://cloudinary.com/)
 
 
 ```bash
@@ -49,19 +59,20 @@ npm run start
 
 
 ## API Endpoints
-![](thumbnail.png)
+![](apiEndpointsScreenshot.png)
 ### Download Postman endpoints file 
-+ [postman-api-endpoints.json](flurn-booking-service-assignment-postman-endpoints.json)
++ [postman-api-endpoints.json](postman-api-endpoints.json)
+   
 ### Server Base URL 
 ```bash
 LOCALHOST=http://localhost:4000
-RENDER=https://flurn-booking-service-assignment.onrender.com
+RENDER=https://skyniche-employees-cards-assignment.onrender.com
 ```
 
 ## 1. User Endpoints
 ### 1.1 POST api/v1/user/registerNewUser
 ### Purpose:
-Create new User Account.
+Create new User Account (Admin), using this account new employees can be added, modified or removed.
 ### Request Body:
 ```javascript
 JSON BODY
@@ -100,6 +111,20 @@ JSON
 {
     "success": true,
     "Authorization": "Bearer JWT_TOKEN"
+}
+```
+### 1.3 GET /api/v1/user/handshake-hello
+### Purpose:
+Render Server Free instance spin off if inactive, this request instance to be active once again
+### Request Body:
+NA
+
+### Response Success:
+```javascript
+JSON
+{
+    "success": true,
+    "message": "hi there!"
 }
 ```
 
